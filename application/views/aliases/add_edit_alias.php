@@ -42,7 +42,7 @@
             ?>
         </ul>
         <button type="submit" name="submit" class="btn btn-primary btn-md">Submit</button>
-        <a href="<?= base_url('aliases') ?>" class="btn btn-primary btn-md">Cancel</a>
+        <?php echo anchor('aliases', 'Cancel', 'class="btn btn-primary btn-md"'); ?>
         <?php echo form_close(); ?>
     </div>
 </div>

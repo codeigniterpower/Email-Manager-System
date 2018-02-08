@@ -37,7 +37,7 @@
             <textarea class="form-control" name="message" rows="5"><?= $_POST['message'] ?></textarea>
         </div>
         <button type="submit" name="submit" class="btn btn-primary btn-md">Submit</button>
-        <a href="<?= base_url('vacation') ?>" class="btn btn-primary btn-md">Cancel</a>
+        <?= anchor('vacation', 'Cancel', 'class="btn btn-primary btn-md"'); ?>
         <?= form_close() ?>
     </div>
 </div>

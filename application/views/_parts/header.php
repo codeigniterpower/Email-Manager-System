@@ -30,10 +30,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li <?= uri_string() == 'domains' || uri_string() == '' ? 'class="active"' : '' ?>><a href="<?= base_url() ?>">Domains</a></li>
-                            <li <?= strpos(uri_string(), 'users') !== false ? 'class="active"' : '' ?>><a href="<?= base_url('users') ?>">Users</a></li>
-                            <li <?= strpos(uri_string(), 'forwards') !== false ? 'class="active"' : '' ?>><a href="<?= base_url('forwards') ?>">Forwards</a></li>
-                            <li <?= strpos(uri_string(), 'aliases') !== false ? 'class="active"' : '' ?>><a href="<?= base_url('aliases') ?>">Aliases</a></li>
-                            <li <?= strpos(uri_string(), 'vacation') !== false ? 'class="active"' : '' ?>><a href="<?= base_url('vacation') ?>">Vacation</a></li>
+                            <li <?= strpos(uri_string(), 'users') !== false ? 'class="active"' : '' ?>><?=anchor('users', 'Users')?></li>
+                            <li <?= strpos(uri_string(), 'forwards') !== false ? 'class="active"' : '' ?>><?=anchor('forwards', 'Forwards') ?></li>
+                            <li <?= strpos(uri_string(), 'aliases') !== false ? 'class="active"' : '' ?>><?=anchor('aliases', 'Aliases') ?></li>
+                            <li <?= strpos(uri_string(), 'vacation') !== false ? 'class="active"' : '' ?>><?=anchor('vacation', 'Vacation') ?></li>
                         </ul>
                     </div>
                 </div>

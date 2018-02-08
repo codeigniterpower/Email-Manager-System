@@ -37,7 +37,7 @@
             ?>
         </ul>
         <button type="submit" name="submit" class="btn btn-primary btn-md">Submit</button>
-        <a href="<?= base_url('forwards') ?>" class="btn btn-primary btn-md">Cancel</a>
+        <?= anchor('forwards', 'Cancel','class="btn btn-primary btn-md"'); ?>
         <?= form_close() ?>
     </div>
 </div>

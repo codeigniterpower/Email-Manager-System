@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller {
 
     public function pagination($url, $rowscount, $per_page) {
         $config = array();
-        $config["base_url"] = base_url($url);
+        $config["base_url"] = base_url($url); // TODO stil not get how to manage the index event with anchor or site_url
         $config["total_rows"] = $rowscount;
         $config["per_page"] = $per_page;
         $config["uri_segment"] = 2;

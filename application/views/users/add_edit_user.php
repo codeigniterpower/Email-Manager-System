@@ -32,7 +32,7 @@
             <?php echo form_dropdown('domain', $domains, $_POST['domain'], 'class="form-control"'); ?>
         </div>
         <button type="submit" name="submit" class="btn btn-primary btn-md">Submit</button>
-        <a href="<?= base_url('users') ?>" class="btn btn-primary btn-md">Cancel</a>
+        <?php echo anchor('users', 'Cancel', 'class="btn btn-primary btn-md"'); ?>
         <?= form_close() ?>
     </div> 
 </div>

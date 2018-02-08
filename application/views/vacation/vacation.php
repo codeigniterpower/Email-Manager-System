@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+            <h2>Add Vacation</h2>
             <div class="form-group">
-                <a href="<?= base_url('vacation/add_edit_vacation') ?>" class="btn btn-primary btn-lg">Add Auto-Reply</a>
+                <?php echo anchor('vacation/add_edit_vacation', '+', 'class="btn btn-primary btn-lg"'); ?>
             </div>
         </div>
         <div class="col-sm-6">
@@ -23,7 +24,7 @@
         <div class="alert alert-info" role="alert"><?= $this->session->flashdata('message') ?></div>
         <hr>
     <?php } ?>
-    <h1>Auto-Reply Messages</h1>
+        <h2>Auto-Reply Messages</h2>
     <?php echo form_open('vacation/delvacation'); ?>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -54,7 +55,7 @@
                             <td><?= character_limiter($row['message'],100) ?></td>
                             <td><?= $row['created'] ?></td>
                             <td><?= $row['active'] ?></td>
-                            <td><a href="<?= base_url('vacation/add_edit_vacation/' . $row['domain'] . '/' . $row['email'] . '') ?>">Edit</a></td>
+                            <td><?= anchor('vacation/add_edit_vacation/' . $row['domain'] . '/' . $row['email'], 'Edit'); ?></td>
                         </tr>
                         <?php
                     }

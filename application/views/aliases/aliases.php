@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
+        <h2>Add aliase</h2>
         <div class="col-sm-6">
             <div class="form-group">
-                <a href="<?= base_url('aliases/add_edit_alias') ?>" class="btn btn-primary btn-lg">Add Alias</a>
+                <?php echo anchor('aliases/add_edit_alias', '+', 'class="btn btn-primary btn-lg"'); ?>
             </div>
         </div>
         <div class="col-sm-6">
@@ -23,7 +24,7 @@
         <div class="alert alert-info" role="alert"><?= $this->session->flashdata('message') ?></div>
         <hr>
     <?php } ?>
-    <h1>Aliases:</h1>
+    <h2>Aliases:</h2>
     <?php echo form_open('aliases/delalias'); ?>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -49,7 +50,7 @@
                                     <div><?= $rec ?></div>
                                 <?php }
                                 ?></td>
-                            <td><a href="<?= base_url('aliases/add_edit_alias/' . $val['domain'] . '/' . $val['local_part'] . '') ?>">Edit</a></td>
+                            <td><?= anchor('aliases/add_edit_alias/'.$val['domain'].'/'.$val['local_part'], 'Edit'); ?></td>
                         </tr>
                         <?php
                     }

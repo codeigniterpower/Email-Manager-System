@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+            <h2>Add Forwarding</h2>
             <div class="form-group">
-                <a href="<?= base_url('forwards/add_edit_forward') ?>" class="btn btn-primary btn-lg">Add Forward</a>
+                <?php echo anchor('forwards/add_edit_forward', '+', 'class="btn btn-primary btn-lg"'); ?>
             </div>
         </div>
         <div class="col-sm-6">
@@ -23,7 +24,7 @@
         <div class="alert alert-info" role="alert"><?= $this->session->flashdata('message') ?></div>
         <hr>
     <?php } ?>
-    <h1>Forwards:</h1>
+    <h2>Forwards:</h2>
     <?php echo form_open('forwards/delforward'); ?>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -49,7 +50,7 @@
                                     <div><?= $rec ?></div>
                                 <?php }
                                 ?></td>
-                            <td><a href="<?= base_url('forwards/add_edit_forward/' . $val['domain'] . '/' . $val['local_part'] . '') ?>">Edit</a></td>
+                            <td><?= anchor('forwards/add_edit_forward/' . $val['domain'] . '/' . $val['local_part'], 'Edit'); ?></td>
                         </tr>
                         <?php
                     }

@@ -1,8 +1,9 @@
 <div class="container"> 
     <div class="row">
         <div class="col-sm-6">
+        <h2>Add Users</h2>
             <div class="form-group">
-                <a href="<?= base_url('users/add_edit_user') ?>" class="btn btn-primary btn-lg">Add New User</a>
+                <?php echo anchor('users/add_edit_user', '+', 'class="btn btn-primary btn-lg"'); ?>
             </div>
         </div>
         <div class="col-sm-6">
@@ -19,7 +20,7 @@
         </div>
     </div>
     <hr>
-    <h2>Users List:</h2>
+        <h2>Users List:</h2>
     <?php if ($this->session->flashdata('message')) { ?>
         <hr> <div class="alert alert-info" role="alert"><?= $this->session->flashdata('message') ?></div>
     <?php } ?>
@@ -47,7 +48,7 @@
                             <td><?= $info['login'] ?></td>
                             <td><?= $info['domain'] ?></td>
                             <td><?= $info['decrypt'] ?></td>
-                            <td><a href="<?= base_url('users/add_edit_user/' . $info['domain'] . '/' . $info['login'] . '') ?>">Edit</a></td>
+                            <td><?= anchor('users/add_edit_user/'.$info['domain'].'/'.$info['login'], 'Edit'); ?></td>
                         </tr>
 
                         <?php

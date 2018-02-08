@@ -8,7 +8,7 @@
                 <input type="text" class="form-control" name="domain" id="domainname">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-default" id="adddomain">Add To Database <span class="glyphicon glyphicon-plus"></span></button>
+                <button type="submit" class="btn btn-primary btn-lg btn-default" id="adddomain">+</button>
             </div>
             <?= form_close() ?>
         </div>
