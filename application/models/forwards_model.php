@@ -9,11 +9,11 @@ class Forwards_model extends CI_Model {
 
     public function initforwards() {
         $query = "
-CREATE TABLE `userforward` (
+CREATE TABLE IF NOT EXISTS `userforward` (
   `recipients` VARCHAR(40) NULL,
   `domain` VARCHAR(40) NULL,
   `local_part` VARCHAR(40) NULL,
-  PRIMARY KEY (`recipients`, `domains`, `local_part`));
+  PRIMARY KEY (`recipients`, `domain`, `local_part`));
         ";
         return $this->db->query($query);
     }

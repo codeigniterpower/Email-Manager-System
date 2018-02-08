@@ -9,7 +9,7 @@ class Vacation_model extends CI_Model {
 
     public function initvacation() {
         $query = "
-CREATE TABLE `vacation` (
+CREATE TABLE IF NOT EXISTS `vacation` (
   `email` varchar(40) NOT NULL,
   `local_part` varchar(40) DEFAULT NULL,
   `domain` varchar(40) NOT NULL,

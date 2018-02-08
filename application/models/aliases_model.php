@@ -9,7 +9,7 @@ class Aliases_model extends CI_Model {
 
     public function initaliases() {
         $query = "
-CREATE TABLE `aliases` (
+CREATE TABLE IF NOT EXISTS `aliases` (
   `local_part` varchar(40) DEFAULT NULL,
   `domain` varchar(40) NOT NULL,
   `recipients` varchar(40) DEFAULT NULL,

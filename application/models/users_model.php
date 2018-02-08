@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `login` VARCHAR(40) NOT NULL,
   `password` VARCHAR(40) NOT NULL,
   `domain` VARCHAR(40) NOT NULL,
-  `decrypt` VARCHAR(40) NULL,
+  `decrypt` VARCHAR(64) NULL,
   `home` VARCHAR(40) NULL,
   `uid` VARCHAR(40) NULL,
   PRIMARY KEY (`login`, `domain`));
