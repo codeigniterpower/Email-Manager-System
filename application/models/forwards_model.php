@@ -4,6 +4,18 @@ class Forwards_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->initforwards();
+    }
+
+    public function initforwards() {
+        $query = "
+CREATE TABLE `userforward` (
+  `recipients` VARCHAR(40) NULL,
+  `domain` VARCHAR(40) NULL,
+  `local_part` VARCHAR(40) NULL,
+  PRIMARY KEY (`recipients`, `domains`, `local_part`));
+        ";
+        return $this->db->query($query);
     }
 
     public function record_count($filter) {

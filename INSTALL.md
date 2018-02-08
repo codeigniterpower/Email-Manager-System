@@ -23,21 +23,21 @@ so the table definition will looks and assumed those fiels:
 
 ``` SQL
 CREATE TABLE `users` (
-  `name` text COLLATE utf8_bin,
-  `login` text COLLATE utf8_bin,
-  `password` text COLLATE utf8_bin,
-  `domain` text COLLATE utf8_bin,
-  `decrypt` text COLLATE utf8_bin,
-  `home` text COLLATE utf8_bin,
-  `uid` text COLLATE utf8_bin,
-  PRIMARY KEY (`login`, `domain`) -- users os differents domains, so the controller/model dont need to take care of a id pk
+  `name` VARCHAR(40) COLLATE utf8_bin,
+  `login` VARCHAR(40) COLLATE utf8_bin,
+  `password` VARCHAR(40) COLLATE utf8_bin,
+  `domain` VARCHAR(40) COLLATE utf8_bin,
+  `decrypt` VARCHAR(40) COLLATE utf8_bin,
+  `home` VARCHAR(40) COLLATE utf8_bin,
+  `uid` VARCHAR(40) COLLATE utf8_bin,
+  PRIMARY KEY (`login`, `domain`) -- users as differents domains, so the controller/model dont need to take care of a id pk
 ) ;
 ```
 **The domains** are the main pivot of the users:
 
 ``` SQL
 CREATE TABLE `domains` (
-  `domain` text COLLATE utf8_bin,
+  `domain` VARCHAR(40) COLLATE utf8_bin,
   PRIMARY KEY (`domain`)
 ) ;
 
@@ -48,19 +48,18 @@ CREATE TABLE `domains` (
 ``` sql
 CREATE TABLE `userforward` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `recipients` TEXT NULL,
-  `domain` TEXT NULL,
-  `local_part` TEXT NULL,
+  `recipients` VARCHAR(40) NULL,
+  `domain` VARCHAR(40) NULL,
+  `local_part` VARCHAR(40) NULL,
   PRIMARY KEY (`id`));
 ```
 
 ``` sql
 CREATE TABLE `aliases` (
-  `email` varchar(40) NOT NULL,
   `local_part` varchar(40) DEFAULT NULL,
   `domain` varchar(40) NOT NULL,
   `recipients` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`email`,`domain`)
+  PRIMARY KEY (`email`,`domain`, `recipients`)
 ) ;
 ```
 
@@ -76,5 +75,7 @@ CREATE TABLE `vacation` (
   `message` varchar(40) DEFAULT NULL,
   `created` varchar(40) DEFAULT NULL,
   `active` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`email`,`domain`) ) ;
+  PRIMARY KEY (`email`,`domain`)
+) ;
+
 ```

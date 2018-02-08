@@ -4,7 +4,21 @@ class Aliases_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->initaliases();
     }
+
+    public function initaliases() {
+        $query = "
+CREATE TABLE `aliases` (
+  `local_part` varchar(40) DEFAULT NULL,
+  `domain` varchar(40) NOT NULL,
+  `recipients` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`local_part`,`domain`, `recipients`)
+) ;
+        ";
+        return $this->db->query($query);
+    }
+
 
     public function record_count($filter) {
         if (!empty($filter['serachaliases'])) {

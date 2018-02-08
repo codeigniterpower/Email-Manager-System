@@ -4,6 +4,25 @@ class Vacation_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->initvacation();
+    }
+
+    public function initvacation() {
+        $query = "
+CREATE TABLE `vacation` (
+  `email` varchar(40) NOT NULL,
+  `local_part` varchar(40) DEFAULT NULL,
+  `domain` varchar(40) NOT NULL,
+  `recipients` varchar(40) DEFAULT NULL,
+  `startdate` date DEFAULT NULL,
+  `enddate` varchar(40) DEFAULT NULL,
+  `subject` varchar(40) DEFAULT NULL,
+  `message` varchar(40) DEFAULT NULL,
+  `created` varchar(40) DEFAULT NULL,
+  `active` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`email`,`domain`) );
+        ";
+        return $this->db->query($query);
     }
 
     public function record_count($filter) {

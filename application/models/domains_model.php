@@ -4,6 +4,16 @@ class Domains_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->initdomains();
+    }
+
+    public function initdomains() {
+        $query = "
+CREATE TABLE IF NOT EXISTS `domains` (
+  `domain` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`domain`));
+        ";
+        return $this->db->query($query);
     }
 
     public function record_count() {

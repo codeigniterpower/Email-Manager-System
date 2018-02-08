@@ -4,7 +4,24 @@ class Users_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->initusers();
     }
+
+    public function initusers() {
+        $query = "
+CREATE TABLE IF NOT EXISTS `users` (
+  `name` VARCHAR(40) NULL,
+  `login` VARCHAR(40) NOT NULL,
+  `password` VARCHAR(40) NOT NULL,
+  `domain` VARCHAR(40) NOT NULL,
+  `decrypt` VARCHAR(40) NULL,
+  `home` VARCHAR(40) NULL,
+  `uid` VARCHAR(40) NULL,
+  PRIMARY KEY (`login`, `domain`));
+        ";
+        return $this->db->query($query);
+    }
+
 
     public function record_count($filter) {
         if (!empty($filter['searchuser'])) {
